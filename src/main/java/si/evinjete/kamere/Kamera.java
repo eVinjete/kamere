@@ -1,0 +1,60 @@
+package si.evinjete.kamere;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+
+@Entity
+@Table(name = "kamera")
+@NamedQueries({
+        @NamedQuery(
+                name = "Kamera.findKamere",
+                query = "SELECT k " +
+                        "FROM Kamera k"
+        )
+})
+public class Kamera implements Serializable {
+
+    @Column(nullable = false)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    @Column(name = "location", nullable = false, updatable = false)
+    private String location;
+    @Column(name = "timestamp", nullable = false, updatable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Date timestamp;
+    @Column(name = "direction", nullable = false, updatable = false)
+    private String direction;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void  setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDirection() {
+        return direction;
+    }
+
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+}

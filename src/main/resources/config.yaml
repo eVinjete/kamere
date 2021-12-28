@@ -1,0 +1,22 @@
+kumuluzee:
+  name: kamere
+  env:
+    name: dev
+  version: 1.0.0
+  server:
+    base-url: http://localhost:8080
+    http:
+      port: 8080
+  datasources:
+    - jndi-name: jdbc/KamereDS
+      connection-url: jdbc:postgresql://localhost:5432/kamere
+      username: postgres
+      password: postgres
+      pool:
+        max-size: 20
+  persistence-units:
+    - name: "evinjete-kamere"
+      continue-on-error: false
+  config:
+    start-retry-delay-ms: 500
+    max-retry-delay-ms: 900000
