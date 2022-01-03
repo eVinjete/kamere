@@ -2,10 +2,7 @@ package si.evinjete.kamere;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.ws.rs.*;
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Date;
@@ -17,13 +14,8 @@ import java.util.List;
 @Path("kamere")
 public class KameraResource {
 
-    private WebTarget wb;
-
     @Inject
     private KameraService kameraBean;
-
-    @PersistenceContext
-    private EntityManager em;
 
     @GET
     public Response getAllKamere() {
@@ -46,12 +38,11 @@ public class KameraResource {
         if (kamera.getDirection() == null || kamera.getLocation() == null) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         } else {
-            kamera = kameraBean.addNewKamera(kamera);
+            kamera.setTimestamp(new Date());
+            kameraBean.addNewKamera(kamera);
         }
 
-        kamera.setTimestamp(new Date());
-        kameraBean.saveKamera(kamera);
-        return Response.noContent().build();
+        return Response.ok(kamera).build();
     }
 
     @DELETE

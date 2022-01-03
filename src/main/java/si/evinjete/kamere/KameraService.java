@@ -12,7 +12,7 @@ public class KameraService {
     private EntityManager em;
 
     public Kamera getKamera(String kameraId) {
-        return em.find(Kamera.class, kameraId);
+        return em.find(Kamera.class, Integer.parseInt(kameraId));
     }
 
     public List<Kamera> getKamere() {
@@ -32,7 +32,7 @@ public class KameraService {
 
     @Transactional(Transactional.TxType.REQUIRED)
     public void deleteKamera(String kameraId) {
-        Kamera kamera = em.find(Kamera.class, kameraId);
+        Kamera kamera = em.find(Kamera.class, Integer.parseInt(kameraId));
         if (kamera != null) {
             em.remove(kamera);
         }

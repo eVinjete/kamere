@@ -9,9 +9,9 @@ kumuluzee:
       port: 8080
   datasources:
     - jndi-name: jdbc/KamereDS
-      connection-url: jdbc:postgresql://localhost:5432/kamere
+      connection-url: jdbc:postgresql://34.122.241.182:5432/kamere
       username: postgres
-      password: postgres
+      password: X2CY4dBkNa1i
       pool:
         max-size: 20
   persistence-units:
@@ -20,3 +20,5 @@ kumuluzee:
   config:
     start-retry-delay-ms: 500
     max-retry-delay-ms: 900000
+    consul:
+      agent: http://localhost:8500
