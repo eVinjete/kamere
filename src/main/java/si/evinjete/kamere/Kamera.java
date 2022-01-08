@@ -2,6 +2,7 @@ package si.evinjete.kamere;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -56,5 +57,17 @@ public class Kamera implements Serializable {
 
     public void setDirection(String direction) {
         this.direction = direction;
+    }
+
+    @Override
+    public String toString() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        String strDate = formatter.format(timestamp);
+        return "Kamera {\n" +
+                "  id='" + id + "',\n" +
+                "  location='" + location + "',\n" +
+                "  direction='" + direction + "'\n" +
+                "  timestamp='" + strDate + "'\n" +
+                "}";
     }
 }

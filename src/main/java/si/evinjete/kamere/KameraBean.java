@@ -1,14 +1,14 @@
 package si.evinjete.kamere;
 
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-@ManagedBean
-@SessionScoped
+@Named
+@RequestScoped
 public class KameraBean implements Serializable {
 
     @Inject
@@ -62,12 +62,13 @@ public class KameraBean implements Serializable {
 
     public void addKamera() {
         Kamera kamera = new Kamera();
-        kamera.setId(this.id);
         kamera.setDirection(this.direction);
-        kamera.setTimestamp(this.timestamp);
+        kamera.setTimestamp(new Date());
         kamera.setLocation(this.location);
 
-        //kameraBean.addNewKamera(kamera);
+        if (kameraBean != null) {
+            kameraBean.addNewKamera(kamera);
+        }
 
         this.setId(null);
         this.setDirection(null);
@@ -75,9 +76,9 @@ public class KameraBean implements Serializable {
         this.setLocation(null);
     }
 
-//    public List<Kamera> getKamere() {
-//        return kameraBean.getKamere();
-//    }
+    public List<Kamera> getKamere() {
+        return kameraBean.getKamere();
+    }
 
     @Override
     public String toString() {

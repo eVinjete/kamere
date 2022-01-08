@@ -9,7 +9,7 @@
 </h:head>
 <h:body>
     <h2>Kamere</h2>
-    <ui:repeat value="#{kameraBean.getKamere()}" var="kamera">
+    <ui:repeat value="#{kameraService.getKamere()}" var="kamera">
         <h:outputText value="#{kamera.toString()}"/>
         <br/>
     </ui:repeat>
