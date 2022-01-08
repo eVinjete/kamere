@@ -18,7 +18,10 @@
                 ID: <h:outputText value="#{kamera.getId()}"/><br />
                 Lokacija: <h:outputText value="#{kamera.getLocation()}"/><br />
                 Smer: <h:outputText value="#{kamera.getDirection()}"/><br />
-                Čas dodajanja: <h:outputText value="#{kamera.getTimestamp()}"/>
+                Čas dodajanja: <h:outputText value="#{kamera.getTimestamp()}"/><br /><br />
+                <h:form>
+                    <h:commandButton styleClass="btn btn-danger" value="Izbriši" action="#{kameraBean.removeKamera(kamera.getId())}"/>
+                </h:form>
             </li>
         </ui:repeat>
     </ul>

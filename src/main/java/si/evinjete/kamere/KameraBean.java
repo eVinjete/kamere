@@ -66,14 +66,16 @@ public class KameraBean implements Serializable {
         kamera.setTimestamp(new Date());
         kamera.setLocation(this.location);
 
-        if (kameraBean != null) {
-            kameraBean.addNewKamera(kamera);
-        }
+        kameraBean.addNewKamera(kamera);
 
         this.setId(null);
         this.setDirection(null);
         this.setTimestamp(null);
         this.setLocation(null);
+    }
+
+    public void removeKamera(Integer id) {
+        kameraBean.deleteKamera(Integer.toString(id));
     }
 
     public List<Kamera> getKamere() {
