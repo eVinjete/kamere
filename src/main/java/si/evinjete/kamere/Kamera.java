@@ -63,11 +63,9 @@ public class Kamera implements Serializable {
     public String toString() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         String strDate = formatter.format(timestamp);
-        return "Kamera {\n" +
-                "  id='" + id + "',\n" +
-                "  location='" + location + "',\n" +
-                "  direction='" + direction + "'\n" +
-                "  timestamp='" + strDate + "'\n" +
-                "}";
+        return "ID: " + id + "\n" +
+               "Lokacija: " + location + "\n" +
+               "Smer: " + direction + "\n" +
+               "Čas dodajanja:" + strDate + "\n";
     }
 }

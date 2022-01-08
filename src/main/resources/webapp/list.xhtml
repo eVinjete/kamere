@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -6,16 +7,24 @@
 
 <h:head>
     <title>Kamere</title>
+    <h:outputStylesheet name="css/style.css" />
+    <h:outputStylesheet name="css/bootstrap.min.css" />
 </h:head>
 <h:body>
     <h2>Kamere</h2>
-    <ui:repeat value="#{kameraService.getKamere()}" var="kamera">
-        <h:outputText value="#{kamera.toString()}"/>
-        <br/>
-    </ui:repeat>
+    <ul class="list-group">
+        <ui:repeat value="#{kameraBean.getKamere()}" var="kamera">
+            <li class="list-group-item">
+                ID: <h:outputText value="#{kamera.getId()}"/><br />
+                Lokacija: <h:outputText value="#{kamera.getLocation()}"/><br />
+                Smer: <h:outputText value="#{kamera.getDirection()}"/><br />
+                Čas dodajanja: <h:outputText value="#{kamera.getTimestamp()}"/>
+            </li>
+        </ui:repeat>
+    </ul>
     <br />
     <h:form>
-        <h:commandButton value="Domov" action="welcome"/>
+        <h:commandButton styleClass="btn btn-primary" value="Domov" action="welcome"/>
     </h:form>
 </h:body>
 </html>

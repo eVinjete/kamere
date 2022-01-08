@@ -79,14 +79,4 @@ public class KameraBean implements Serializable {
     public List<Kamera> getKamere() {
         return kameraBean.getKamere();
     }
-
-    @Override
-    public String toString() {
-        return "Kamera {\n" +
-                "  id='" + id + "',\n" +
-                "  location='" + location + "',\n" +
-                "  direction='" + direction + "'\n" +
-                "  timestamp='" + timestamp + "'\n" +
-                "}";
-    }
 }

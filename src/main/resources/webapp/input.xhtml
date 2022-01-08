@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -5,6 +6,8 @@
 
 <h:head>
     <title>Kamere UI</title>
+    <h:outputStylesheet name="css/style.css" />
+    <h:outputStylesheet name="css/bootstrap.min.css" />
 </h:head>
 <h:body>
     <h2>Vnesi podatke kamere:</h2>
@@ -20,9 +23,10 @@
         </h:outputLabel>
         <br/>
         <br/>
-        <h:commandButton value="Add" action="#{kameraBean.addKamera()}"/>
+        <h:commandButton styleClass="btn btn-primary" value="Dodaj" action="#{kameraBean.addKamera()}"/>
         <br/>
-        <h:commandButton value="Home" action="welcome"/>
+        <br/>
+        <h:commandButton styleClass="btn btn-primary" value="Domov" action="welcome"/>
     </h:form>
 </h:body>
 </html>

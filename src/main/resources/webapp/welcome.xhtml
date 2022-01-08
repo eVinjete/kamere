@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -5,14 +6,17 @@
 
 <h:head>
     <title>Kamere UI</title>
+    <h:outputStylesheet name="css/style.css" />
+    <h:outputStylesheet name="css/bootstrap.min.css" />
 </h:head>
 <h:body>
     <h2>Možnosti:</h2>
+    <br/>
     <h:form>
-        <h:commandButton value="Dodaj kamero" action="input"/>
+        <h:commandButton styleClass="btn btn-primary" value="Dodaj kamero" action="input"/>
         <br/>
         <br/>
-        <h:commandButton value="Prikaži seznam kamer" action="list"/>
+        <h:commandButton styleClass="btn btn-primary" value="Prikaži seznam kamer" action="list"/>
     </h:form>
 </h:body>
 </html>
