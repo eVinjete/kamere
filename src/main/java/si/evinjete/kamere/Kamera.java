@@ -20,6 +20,8 @@ public class Kamera implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name = "password", nullable = false, updatable = false)
+    private String password;
     @Column(name = "location", nullable = false, updatable = false)
     private String location;
     @Column(name = "timestamp", nullable = false, updatable = false, columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
@@ -67,5 +69,13 @@ public class Kamera implements Serializable {
                "Lokacija: " + location + "\n" +
                "Smer: " + direction + "\n" +
                "Čas dodajanja:" + strDate + "\n";
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
